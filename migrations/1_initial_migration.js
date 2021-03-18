@@ -28,7 +28,7 @@ const params = {
         startPrice: new BN("350000000000000")
     }
 }
-
+// Correction
 module.exports = async function (deployer, network, [account]) {
     if (["development", "develop", 'soliditycoverage'].indexOf(network) >= 0) {
       const w = await deployer.deploy(WBTC)
@@ -44,7 +44,8 @@ module.exports = async function (deployer, network, [account]) {
 
       await deployer.deploy(ETHOptions,
           PriceProvider.address,
-          StakingETH.address
+          StakingETH.address,
+          ETHPool.address
       )
       await deployer.deploy(WBTCOptions,
           BTCPriceProvider.address,
